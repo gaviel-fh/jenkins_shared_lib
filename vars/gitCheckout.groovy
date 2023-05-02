@@ -3,5 +3,6 @@ def call(Map stageParams) {
         $class: 'GitSCM',
         branches: [[name: stageParams.branch]],
         usrRemoteConfigs: [[url: stageParams.url]],
+        clean: true
     ])
 }
