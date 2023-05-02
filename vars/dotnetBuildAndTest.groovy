@@ -15,8 +15,6 @@ def call(String projectDir, String testProjectDir) {
     }
 
     stage('Test') {
-        dir(testProjectDir) {
-            sh 'docker build -t todoapp-apitest .'
-        }
+        sh 'docker build -f ${testProjectDir}/Dockerfile -t todoapp-apitest .'
     }
 }
