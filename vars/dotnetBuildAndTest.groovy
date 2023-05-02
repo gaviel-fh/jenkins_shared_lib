@@ -16,11 +16,7 @@ def call(String projectDir, String testProjectDir) {
 
     stage('Test') {
         dir(testProjectDir) {
-            sh 'dotnet test --logger "trx;LogFileName=TestResults.trx" --configuration Release'
+            sh 'docker build -t todoapp-apitest -f Dockerfile'
         }
-    }
-
-    stage('Publish Test Results') {
-        trxPublisher trxFiles: '**/TestResults.trx'
     }
 }
